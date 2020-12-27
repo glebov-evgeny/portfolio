@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landingpage
+spec:
+  {{- if eq .Values.global.env_name "prod" }}
+  replicas: {{ if .Values.instance_count }}{{ .Values.instance_count }}{{ else }}1{{ end }}
+  {{- else}}
+  replicas: 1
+  {{- end}}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: landingpage
+  template:
+    metadata:
+      labels:
+        app: landingpage
+        ksync: landingpage
+      annotations:
+        synergy.ru/gitlab.url: {{ .Values.global.ci_project_url }}
+        synergy.ru/gitlab.id: "{{ .Values.global.ci_project_id }}"
+        {{- if ne .Values.global.lifetime "" }}
+        synergy.ru/lifetime: {{ .Values.global.lifetime }}
+        {{- end }}
+        checksum/config: {{ include (print $.Template.BasePath "/11-landingpage-cm.yaml") . | sha256sum }}
+    spec:
+      containers:
+        - name: php-fpm
+{{ tuple "php-fpm" . | include "werf_container_image" | indent 10 }}
+          env:
+{{ tuple "php-fpm" . | include "werf_container_env" | indent 12 }}
+          ports:
+            - name: php-fpm
+              containerPort: 9000
+          volumeMounts:
+            - name: config-volume-php-1
+              mountPath: /php-conf
+            - name: config-volume-php-2
+              mountPath: /usr/local/etc/php-fpm.d
+        - name: nginx
+{{ tuple "nginx" . | include "werf_container_image" | indent 10 }}
+          env:
+{{ tuple "nginx" . | include "werf_container_env" | indent 12 }}
+          ports:
+            - name: http
+              containerPort: 80
+          volumeMounts:
+            - name: config-volume-nginx-1
+              mountPath: /etc/nginx
+            - name: config-volume-nginx-2
+              mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: config-volume-php-1
+          configMap:
+            name: php-fpm-config-1
+        - name: config-volume-php-2
+          configMap:
+            name: php-fpm-config-2
+        - name: config-volume-nginx-1
+          configMap:
+            name: nginx-config-1
+        - name: config-volume-nginx-2
+          configMap:
+            name: nginx-config-2
+      imagePullSecrets:
+        - name: docker-registry{{- if ne .Values.global.env_name "prod" }}-dev{{- end}}
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: landingpage
+spec:
+  ports:
+    - port: 80
+      name: http
+  selector:
+    app: landingpage
+---

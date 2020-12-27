@@ -1,0 +1,25 @@
+# Файл для написания редиректов и зеркал
+# values.yaml
+#
+# Список редиректов. По умолчанию: redirects: []
+# Пример:
+# redirects:
+#   - host: domain1.com
+#     path: /
+#   - host: domain2.com
+#     path: /lp/test
+redirects: []
+
+# Список зеркал. Параметр query - необязательный. По умолчанию: mirrors: []
+# Пример:
+# mirrors:
+#   - host: domain1.com             # домен зеркала
+#     path: /                       # путь зеркала
+#     query: partner=any_partner    # не обязательный параметр, указывается после ? в url
+#   - host: domain2.com
+#     path: /lp/test
+mirrors:
+  - host: programiss.ru
+    path: /
+  - host: xn--80afqphfhcma.xn--p1ai
+    path: /

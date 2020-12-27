@@ -1,0 +1,38 @@
+.popup{
+	border-radius: 25px;
+	position: relative;
+	max-width: 370px;
+	overflow: hidden;
+	background: #2654ED;
+	box-sizing: border-box;
+	padding: 35px 20px;
+	&__close {
+		position: absolute;
+		content: "";
+		top: 10px;
+		right: 10px;
+		width: 35px;
+		height: 35px;
+		background-repeat: no-repeat;
+		-webkit-background-size: 15px auto;
+		background-size: 15px auto;
+		background-position: 50% 50%;
+		z-index: 2;
+		background-image: url("../img/popups/close.svg");
+	}
+	.form {
+		padding: 0;
+		min-width: inherit;
+		&__title {
+		font-size: 34px;
+		line-height: 36px;
+		}
+		&__items{
+		flex-direction: column;
+		}
+		&__item {
+		width: 100%;
+		margin-bottom: 20px;
+		}
+	}
+}

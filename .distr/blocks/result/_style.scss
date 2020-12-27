@@ -1,0 +1,90 @@
+.result{
+    background-color: #ffffff;
+    padding-top: 170px;
+    padding-bottom: 50px;
+    position: relative;
+    &:before{
+		content: '';
+		width: 550px;
+		height: 550px;
+		background: url("../img/result/decor-left.svg") center center no-repeat;
+		background-size: contain;
+		position: absolute;
+		top: 10%;
+        left: -140px;
+	}
+	&:after{
+		content: '';
+		width: 550px;
+		height: 550px;
+		background: url("../img/result/decor-right.svg") center center no-repeat;
+		background-size: contain;
+		position: absolute;
+		top: 30%;
+		right: -115px;
+    }
+    .container{
+        position: relative;
+        z-index: 1;
+    }
+    &__title{
+        font-size: 62px;
+        line-height: 94%;
+        color: #000000;
+        margin-bottom: 70px;
+    }
+    &__text{
+        font-size: 34px;
+        line-height: 120%;
+        color: #000000;
+        margin-bottom: 60px;
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+        &-text{
+            font-weight: 400;
+            font-size: 34px;
+            line-height: 44px;
+            letter-spacing: 0.07em;
+            color: #000000;
+            padding-left: 50px;
+        }
+        &-pic{
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            &.bg-1{
+                background: #FFEA00;
+            }
+            &.bg-2{
+                background: #FF8D38;
+            }
+            &.bg-3{
+                background: #F41F52;
+            }
+            &.bg-4{
+                background: #EB71E6;
+            }
+            &.bg-5{
+                background: #7E26ED;
+            }
+            &.bg-6{
+                background: #263AED;
+            }
+            &.bg-7{
+                background: #00D1FF;
+            }
+            &.bg-8{
+                background: #26EDBD;
+            }
+            &.bg-9{
+                background: #2AED26;
+            }
+        }
+    }
+}
+
