@@ -27,16 +27,16 @@ include_once $ROOT . 'version.php';
   <link rel="image_src" href="//<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>img/common/share.jpg">
 
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
 
   {% block styles %}
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   {% endblock %}
 
-	<!-- <link href="https://synergy.ru/img/favicon.ico" type="image/x-icon" rel="icon">
-	<link href="https://synergy.ru/img/favicon.ico" type="image/x-icon" rel="shortcut icon"> -->
+	<link href="../img/common/favicon.ico" type="image/x-icon" rel="icon">
+	<link href="../img/common/favicon.ico" type="image/x-icon" rel="shortcut icon">
 
 </head>
 
@@ -63,10 +63,9 @@ include_once $ROOT . 'version.php';
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
 
-	{% block script %}
+ 	{% block script %}
   {% endblock %}
-
 </body>
 </html>

@@ -1,8 +1,20 @@
 .header{
-    padding: 45px 0;
+	padding: 45px 0;
+	background-color: #2D3333;
+	transition: all 0.5s ease;
+	&__fixed{
+		padding: 15px 0;
+		width: 100%;
+		box-shadow: 0px 8px 14px rgba(0,0,0,0.05);
+		position: fixed;
+		z-index: 99999;
+	}
     &__nav{
         display: flex;
-        justify-content: flex-end;
+		justify-content: flex-end;
+		&-mobile{
+			display: none;
+		}
         &-link{
             position: relative;
             font-weight: 600;
@@ -54,7 +66,44 @@
 			}
         }
 	}
+	&__menu{
+        display: none;
+        .ham {
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.5s;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .hamRotate.active {
+            transform: rotate(45deg);
+        }
+        .hamRotate180.active {
+            transform: rotate(180deg);
+        }
+        .line {
+            fill:none;
+            transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+            stroke: #ffffff;
+            stroke-width:6.5;
+            stroke-linecap:round;
 
+        }
+        .hamR .top {
+            stroke-dasharray: 40 121;
+        }
+        .hamR .bottom {
+            stroke-dasharray: 40 121;
+        }
+        .hamR.active .top {
+            stroke-dashoffset: -68px;
+        }
+        .hamR.active .bottom {
+            stroke-dashoffset: -68px;
+        }
+    }
 }
 @-webkit-keyframes activeLink {
 	0%{

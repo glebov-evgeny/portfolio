@@ -1,13 +1,9 @@
 {% extends "default.php" %}
 
 {% block blocks %}
-<main class="main" id="main">
-    <div class="main__bg main__bg-1"></div>
-    <div class="main__bg main__bg-2">
-        {% include 'header/block.php' %}
-        {% include 'about/block.php' %}
-    </div>
-</main>
+    {% include 'header/block.php' %}
+    {% include 'about/block.php' %}
+    {% include 'portfolio/block.php' %}
 {% endblock %}
 
 {% block popups %}
