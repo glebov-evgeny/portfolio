@@ -1,17 +1,59 @@
-$(function () {
+$(document).ready(function () {
   mainAnimation();
+  initHeader();
+  initHeaderBurger();
+  initScroll();
+
+
+  function initHeader() {
+    if ($(window).width() > 320) {
+      var menu = $('.header');
+      var topOfMenu = $(menu).offset().top;
+
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > topOfMenu) {
+          $(menu).addClass('header__fixed');
+        } else {
+          $(menu).removeClass('header__fixed');
+        }
+      })
+    }
+  }
+
+  function initHeaderBurger() {
+    $('.header__menu').on('click', function () {
+      $('.header__nav-mobile').toggleClass('active');
+    })
+    $('.header__nav-mobile-link').on('click', function () {
+      $('.ham, .header__nav-mobile').removeClass('active');
+    });
+  }
+
+  function initScroll() {
+    if (!$('.scroll').length) return;
+
+    $(document).on('click scroll.init', '.scroll', function (event) {
+      event.preventDefault();
+      $.fancybox.close();
+
+      var
+        hrefId = $(this).attr('href') || $(this).data('href'),
+        posTop = $(hrefId).offset().top;
+      $('html, body').animate({ scrollTop: posTop}, 1000);
+    });
+  }
 
   function mainAnimation() {
-    let mainBg1 = document.querySelector('.main__bg-1');
-    let mainBg2 = document.querySelector('.main__bg-2');
+    // let mainBg1 = document.querySelector('.main__bg-1');
+    // let mainBg2 = document.querySelector('.main__bg-2');
 
 
-    mainBg1.style.transform = 'translate3d(0, 0, 0)';
-    mainBg2.style.transform = 'translate3d(0, 0, 0)';
+    // mainBg1.style.transform = 'translate3d(0, 0, 0)';
+    // mainBg2.style.transform = 'translate3d(0, 0, 0)';
     headerShow();
     setTimeout(function(){
       aboutShow();
-    }, 800);
+    }, 400);
   }
 
   function headerShow(){
@@ -109,6 +151,3 @@ $(function () {
   }
 
 });
-
-
-
