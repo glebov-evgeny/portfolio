@@ -12,8 +12,11 @@
     }
 
     @media (max-width: 576px) {
-        padding: 5px 0;
-        max-height: 60px;
+        padding:0;
+        height: 60px;
+        &__fixed{
+            height: 60px;
+        }
         &__nav{
             display: none;
             &-mobile{
@@ -61,6 +64,7 @@
         &__menu{
             display: flex;
             justify-content: flex-end;
+            height: 60px;
         }
     }
 }

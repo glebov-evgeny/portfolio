@@ -60,7 +60,7 @@ $(document).ready(function () {
   }
 
   function initHeaderBurger() {
-    $('.header__menu').on('click', function () {
+    $('.ham').on('click', function () {
       $('.header__nav-mobile').toggleClass('active');
     })
     $('.header__nav-mobile-link').on('click', function () {
