@@ -3,7 +3,46 @@ $(document).ready(function () {
   initHeader();
   initHeaderBurger();
   initScroll();
+  initMoreBtn();
 
+
+  function initMoreBtn() {
+
+    let portfolioList = $(".portfolio__content"),
+        listSizePortfolio = portfolioList.children().length,
+        defaultSizePortfolio,
+        step,
+        scrollPosition;
+
+    if ( document.body.clientWidth > 769 ) { 
+      defaultSizePortfolio = 8;
+      step = 4; }
+    else if ( document.body.clientWidth > 576 ) { 
+      defaultSizePortfolio = 6;
+      step = 3; }
+    else if ( document.body.clientWidth < 576 ) { 
+      defaultSizePortfolio = 4;
+      step = 4; }
+      portfolioList.children().hide();
+      portfolioList.children().slice(0, defaultSizePortfolio).fadeIn();
+
+    $('.portfolio__btn').click(function (e) {
+        scrollPosition = window.pageYOffset;
+        e.preventDefault();
+        var portfolioList = $(".portfolio__content");
+
+        defaultSizePortfolio = (defaultSizePortfolio + step <= listSizePortfolio) ? 
+                                                    defaultSizePortfolio + step : 
+                                                    listSizePortfolio;
+                                                    portfolioList.children().slice(0, defaultSizePortfolio).fadeIn();
+
+        window.scrollTo( 0, scrollPosition );
+
+        if (defaultSizePortfolio == listSizePortfolio) {
+            $('.portfolio__btn').hide();
+        }
+    })
+  };
 
   function initHeader() {
     if ($(window).width() > 320) {

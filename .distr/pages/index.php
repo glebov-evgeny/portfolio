@@ -4,6 +4,7 @@
     {% include 'header/block.php' %}
     {% include 'about/block.php' %}
     {% include 'portfolio/block.php' %}
+    {% include 'footer/block.php' %}
 {% endblock %}
 
 {% block popups %}
