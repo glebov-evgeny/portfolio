@@ -1,9 +1,13 @@
 <header class="header" id="header">
     <div class="container">
         <nav class="header__nav">
+            {% if IS_MAIN %}
             <a href="#about" class="header__nav-link scroll">Обо мне</a>
             <a href="#portfolio" class="header__nav-link scroll">Портфолио</a>
             <a href="#contacts" class="header__nav-link scroll">Контакты</a>
+            {% else %}
+            <a href="/" class="header__nav-link">На главную</a>
+            {% endif %}
         </nav>
         <div class="header__menu">
             <svg class="ham hamRotate hamR" viewBox="0 0 100 100" width="50" onclick="this.classList.toggle('active')">
@@ -13,9 +17,13 @@
             </svg>
         </div>
         <nav class="header__nav-mobile">
+        {% if IS_MAIN %}
             <a href="#about" class="header__nav-mobile-link scroll">Обо мне</a>
             <a href="#portfolio" class="header__nav-mobile-link scroll">Портфолио</a>
             <a href="#contacts" class="header__nav-mobile-link scroll">Контакты</a>
+            {% else %}
+            <a href="/" class="header__nav-mobile-link">На главную</a>
+            {% endif %}
         </nav>
     </div>
 </header>

@@ -1,15 +1,16 @@
 .form {
-  padding: 100px 0 50px;
+  // padding: 100px 0 50px;
   position: relative;
   z-index: 1;
   // min-height: 380px;
   min-width: 320px;
   &__title {
-    font-weight: 400;
-    font-size: 44px;
-    line-height: 56px;
-    color: #FFFFFF;
-    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.3em;
+    color: #ededed;
+    margin-bottom: 30px;
     span{
       position: relative;
       &:before{
@@ -41,14 +42,13 @@
     border-radius: 4px;
     padding: 0 25px;
     background: transparent;
-    border: 2px solid #FFFFFF;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 31px;
+    font-size: 18px;
+    line-height: 24px;
     color: #FFFFFF;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 44px;
+    border-radius: 45px;
     &::placeholder {
       color: #FFFFFF;
     }
@@ -58,24 +58,29 @@
     .btn{
       width: 100%;
       background: #fff;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 31px;
-      border-radius: 44px;
+      border-radius: 45px;
       color: rgba(0, 0, 0, 1);
       min-height: 55px;
       transition: 0.4s;
+      &:hover{
+        color: #ffffff;
+        // border: 2px solid #FF8000;
+        background-color: #FF8000;
+      }
     }
   }
   &__footer {
     position: relative;
     display: block;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 22px;
     color: #FFFFFF;
     cursor: pointer;
     margin-bottom: 0;
-    margin-top: 10px;
+    margin-top: 15px;
     &-text {
       padding-left: 30px;
       a{

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Raleway', Helvetica, sans-serif;
+  font-family: 'Mont', Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -11,6 +11,13 @@ body {
   &.noscroll {
     overflow-y: hidden;
   }
+}
+#stars {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 }
 
 a {
@@ -288,49 +295,6 @@ input[name=saveInput]
   display: none;
 }
 
-label.error{
-  display: none!important;
-  // font-style: normal;
-  // font-weight: 500;
-  // font-size: 14px;
-  // line-height: 24px;
-  // color: #E70C6A;
-  // @media (max-width: 576px) {
-  //   font-size: 10px;
-  //   line-height: 12px;
-  // }
-}
-
-.form__input.error{
-    border: 2px solid #F41F52;
-    box-shadow: inset 0 0 5px #F41F52;
-}
-
-.form__answer{
-  .form__button {
-    font-size: 14px;
-    width: 100%;
-    padding: 15px;
-    margin: 15px auto;
-    box-sizing: border-box;
-    border-radius: 10px;
-    color: #ffffff;
-  }
-}
-.send-success{
-  text-align: center;
-  padding: 75px 10px;
-  color: #ffffff;
-  h3{
-    font-size: 44px;
-    line-height: 100%;
-    margin-bottom: 25px;
-  }
-  p{
-    font-size: 30px;
-    line-height: 100%;
-  }
-}
 
 
 select {
@@ -361,10 +325,12 @@ $white: #ffffff;
 
 .container {
   max-width: 1200px;
+
   @media (max-width: 992px) {
     padding-left: 45px;
     padding-right: 45px;
   }
+
   @media (max-width: 768px) {
     padding-left: 25px;
     padding-right: 25px;
@@ -393,21 +359,9 @@ $white: #ffffff;
 }
 
 
-.section__title{
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 130%;
-  text-transform: uppercase;
-  color: #000000;
-  span{
-    color: #8D00F5;
-  }
-  @media(max-width:991px){
-    font-size: 36px;
-  }
-  @media(max-width:768px){
-    font-size: 22px;
-  }
+.section__title {
+  font-family: "Radical", arial;
+  font-weight: 900;
 }
 
 .hidden {

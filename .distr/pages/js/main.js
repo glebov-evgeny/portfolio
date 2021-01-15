@@ -189,4 +189,229 @@ $(document).ready(function () {
     }, 1200);
   }
 
+
+    // Маски
+    $('input[name=\'phone\']').inputmask({"mask": "+7 (999) 999-9999"});
+    $('input[name=\'email\']').inputmask("email");
+
+
+
+// Settings
+var particleCount = 0,
+flareCount = 50,
+motion = 0.15,
+tilt = 0.05,
+color = '#FFEED4',
+particleSizeBase = 0.5,
+particleSizeMultiplier = 0.5,
+flareSizeBase = 100,
+flareSizeMultiplier = 100,
+lineWidth = 1,
+linkChance = 75, // chance per frame of link, higher = smaller chance
+linkLengthMin = 5, // min linked vertices
+linkLengthMax = 7, // max linked vertices
+linkOpacity = 0.25; // number between 0 & 1
+linkFade = 9, // link fade-out frames
+linkSpeed = 1, // distance a link travels in 1 frame
+glareAngle = -60,
+glareOpacityMultiplier = 0.05,
+renderParticles = true,
+renderParticleGlare = true,
+renderFlares = true,
+renderLinks = true,
+renderMesh = false,
+flicker = true,
+flickerSmoothing = 15, // higher = smoother flicker
+blurSize = 0,
+orbitTilt = true,
+randomMotion = true,
+noiseLength = 1000,
+noiseStrength = 1;
+
+var canvas = document.getElementById('stars'),
+//orbits = document.getElementById('orbits'),
+context = canvas.getContext('2d'),
+mouse = { x: 0, y: 0 },
+m = {},
+r = 0,
+c = 1000, // multiplier for delaunay points, since floats too small can mess up the algorithm
+n = 0,
+nAngle = (Math.PI * 2) / noiseLength,
+nRad = 100,
+nScale = 0.5,
+nPos = {x: 0, y: 0},
+points = [],
+vertices = [],
+triangles = [],
+links = [],
+particles = [],
+flares = [];
+
+function init() {
+var i, j, k;
+
+// requestAnimFrame polyfill
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      function( callback ){
+        window.setTimeout(callback, 1000 / 60);
+      };
+})();
+
+resize();
+
+mouse.x = canvas.clientWidth / 2;
+mouse.y = canvas.clientHeight / 2;
+
+// Create particle positions
+for (i = 0; i < particleCount; i++) {
+  var p = new Particle();
+  particles.push(p);
+  points.push([p.x*c, p.y*c]);
+}
+
+
+// Tell all the particles who their neighbors are
+for (i = 0; i < particles.length; i++) {
+  // Loop through all tirangles
+  for (j = 0; j < triangles.length; j++) {
+    // Check if this particle's index is in this triangle
+    k = triangles[j].indexOf(i);
+    // If it is, add its neighbors to the particles contacts list
+    if (k !== -1) {
+      triangles[j].forEach(function(value, index, array) {
+        if (value !== i && particles[i].neighbors.indexOf(value) == -1) {
+          particles[i].neighbors.push(value);
+        }
+      });
+    }
+  }
+}
+
+
+if (renderFlares) {
+  // Create flare positions
+  for (i = 0; i < flareCount; i++) {
+    flares.push(new Flare());
+  }
+}
+
+// Motion mode
+//if (Modernizr && Modernizr.deviceorientation) {
+if ('ontouchstart' in document.documentElement && window.DeviceOrientationEvent) {
+  console.log('Using device orientation');
+  window.addEventListener('deviceorientation', function(e) {
+    mouse.x = (canvas.clientWidth / 2) - ((e.gamma / 90) * (canvas.clientWidth / 2) * 2);
+    mouse.y = (canvas.clientHeight / 2) - ((e.beta / 90) * (canvas.clientHeight / 2) * 2);
+  }, true);
+}
+else {
+  document.body.addEventListener('mousemove', function(e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+}
+
+// Animation loop
+(function animloop(){
+  requestAnimFrame(animloop);
+  resize();
+  render();
+})();
+}
+
+function render() {
+if (randomMotion) {
+  n++;
+  if (n >= noiseLength) {
+    n = 0;
+  }
+  nPos = noisePoint(n);
+}
+
+// Clear
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+if (blurSize > 0) {
+  context.shadowBlur = blurSize;
+  context.shadowColor = color;
+}
+
+if (renderFlares) {
+  // Render flares
+  for (var j = 0; j < flareCount; j++) {
+    flares[j].render();
+  }
+}
+
+}
+
+function resize() {
+canvas.width = window.innerWidth * (window.devicePixelRatio || 1);
+canvas.height = canvas.width * (canvas.clientHeight / canvas.clientWidth);
+}
+
+function startLink(vertex, length) {
+links.push(new Link(vertex, length));
+}
+
+
+// Flare class
+var Flare = function() {
+this.x = random(-0.25, 1.25, true);
+this.y = random(-0.25, 1.25, true);
+this.z = random(0,2);
+this.color = color;
+this.opacity = random(0.001, 0.01, true);
+};
+Flare.prototype.render = function() {
+var pos = position(this.x, this.y, this.z),
+  r = ((this.z * flareSizeMultiplier) + flareSizeBase) * (sizeRatio() / 1000);
+
+context.beginPath();
+context.globalAlpha = this.opacity;
+context.arc(pos.x, pos.y, r, 0, 2 * Math.PI, false);
+context.fillStyle = this.color;
+context.fill();
+context.closePath();
+context.globalAlpha = 1;
+};
+
+
+function noisePoint(i) {
+var a = nAngle * i,
+  cosA = Math.cos(a),
+  sinA = Math.sin(a),
+  //value = simplex.noise2D(nScale * cosA + nScale, nScale * sinA + nScale),
+  //rad = nRad + value;
+  rad = nRad;
+return {
+  x: rad * cosA,
+  y: rad * sinA
+};
+}
+
+function position(x, y, z) {
+return {
+  x: (x * canvas.width) + ((((canvas.width / 2) - mouse.x + ((nPos.x - 0.5) * noiseStrength)) * z) * motion),
+  y: (y * canvas.height) + ((((canvas.height / 2) - mouse.y + ((nPos.y - 0.5) * noiseStrength)) * z) * motion)
+};
+}
+
+function sizeRatio() {
+return canvas.width >= canvas.height ? canvas.width : canvas.height;
+}
+
+function random(min, max, float) {
+return float ?
+  Math.random() * (max - min) + min :
+  Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+// init
+if (canvas) init();
+
 });

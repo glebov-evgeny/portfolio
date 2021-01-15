@@ -1,11 +1,8 @@
 {% extends "default.php" %}
 
 {% block blocks %}
-    {% set IS_MAIN = true %}
     {% include 'header/block.php' %}
-    {% include 'about/block.php' %}
-    {% include 'portfolio/block.php' %}
-    {% include 'contacts/block.php' %}
+    {% include 'privacy/block.php' %}
     {% include 'footer/block.php' %}
 {% endblock %}
 

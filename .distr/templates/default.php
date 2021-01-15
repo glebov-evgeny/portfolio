@@ -6,6 +6,7 @@ $version = isset($_GET['version']) ? urldecode( strtolower($_GET['version']) ) :
 $partner = isset($_GET['partner']) ? urldecode( strtolower($_GET['partner']) ) : '';
 
 include_once $ROOT . 'version.php';
+include_once $ROOT . 'send.php';
 
 ?>
 
@@ -13,6 +14,7 @@ include_once $ROOT . 'version.php';
 <html lang="ru">
 
 <head>
+
   <base href="<?= $BASE_HREF ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
@@ -35,8 +37,10 @@ include_once $ROOT . 'version.php';
   <link rel="stylesheet" href="css/responsive.css">
   {% endblock %}
 
-	<link href="../img/common/favicon.ico" type="image/x-icon" rel="icon">
-	<link href="../img/common/favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<link href="https://ea-glebov.ru/img/common/favicon.ico" type="image/x-icon" rel="icon">
+	<link href="https://ea-glebov.ru/img/common/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link href="https://ea-glebov.ru/img/common/favicon.ico" rel="apple-touch-icon">
+
 
 </head>
 
@@ -48,6 +52,7 @@ include_once $ROOT . 'version.php';
   {% import 'form/macro.php' as form %}
 
   <div class="wrapper">
+    <canvas id="stars" width="300" height="300"></canvas>
     {% block blocks %}
     {% endblock %}
 
@@ -64,6 +69,7 @@ include_once $ROOT . 'version.php';
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js" defer></script>
 
  	{% block script %}
   {% endblock %}

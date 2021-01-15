@@ -1,5 +1,5 @@
 {% macro form(form, form_class='form_horisontal', title_class='', button_class='', title='Участвовать<br> бесплатно', button='Участвовать бесплатно', form_text='', add_fields, exclude_fields) %}
-<form action="<?=$action?>&form={{ form }}" class="form {{form_class}}">
+<form action="send.php" class="form {{form_class}}" method="post">
     <div class="form__wrapper">
         {% if title.length %}
         <h3 class="form__title {{ title_class }}">{{ title | safe }}</h3>
@@ -31,14 +31,14 @@
             <div class="form__item form__button">
                 <button class="btn {{button_class}}" type="submit">{{ button }}</button>
             </div>
-        </div><!-- form__items -->
+        </div>
 
         <div class="form__more">
             <label class="form__footer {{ form__footer_class }}">
                 <div class="form__footer-checkbox"><input type="checkbox" name="personalDataAgree" checked>
                     <div class="form__footer-checkbox-icon lazy"></div>
                 </div>
-                <div class="form__footer-text">Я соглашаюсь с <a href="#privacy" class="fancybox form__more-link">политикой конфиденциальности</a>, даю согласие на обработку персональных данных и получение рассылок</div>
+                <div class="form__footer-text">Отправляя форму, вы соглашаетесь с <a href="/privacy" class="form__more-link">политикой обработки персональных данных</a></div>
             </label>
         </div>
 
@@ -54,5 +54,5 @@
     {% else %}
     <input name="{{ name }}" type="{{ type }}" placeholder="{{ placeholder }}" class="form__input" {{ 'min=1' if type == 'number' }} {{ 'required' if required }} value="{{ value }}">
     {% endif %}
-</div><!-- form__item -->
+</div>
 {% endmacro %}

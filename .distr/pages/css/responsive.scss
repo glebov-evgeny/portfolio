@@ -8,7 +8,12 @@
 @import 'header/_responsive';
 @import 'about/_responsive';
 @import 'portfolio/_responsive';
+@import 'contacts/_responsive';
 @import 'footer/_responsive';
+
+/***********/
+/* Pages */
+@import 'privacy/_responsive';
 
 /* Popups */
 @import 'popups/_responsive';
