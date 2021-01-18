@@ -5,6 +5,7 @@
     {% include 'header/block.php' %}
     {% include 'about/block.php' %}
     {% include 'portfolio/block.php' %}
+    {#% include 'skills/block.php' %#}
     {% include 'contacts/block.php' %}
     {% include 'footer/block.php' %}
 {% endblock %}

@@ -1,0 +1,23 @@
+.skills{
+    padding: 90px 0;
+    &__title{
+        text-align: left;
+        color: #ffffff;
+    }
+    &__block{
+        margin-top: 35px;
+    }
+    &__item{
+        min-height: 40px;
+        background-color: #ffff;
+        width: 100%;
+        max-width: 115px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

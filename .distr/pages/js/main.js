@@ -83,12 +83,6 @@ $(document).ready(function () {
   }
 
   function mainAnimation() {
-    // let mainBg1 = document.querySelector('.main__bg-1');
-    // let mainBg2 = document.querySelector('.main__bg-2');
-
-
-    // mainBg1.style.transform = 'translate3d(0, 0, 0)';
-    // mainBg2.style.transform = 'translate3d(0, 0, 0)';
     headerShow();
     setTimeout(function(){
       aboutShow();
@@ -198,38 +192,18 @@ $(document).ready(function () {
 
 // Settings
 var particleCount = 0,
-flareCount = 50,
+flareCount = 20,
 motion = 0.15,
-tilt = 0.05,
-color = '#FFEED4',
-particleSizeBase = 0.5,
-particleSizeMultiplier = 0.5,
+color = '#e0e0e0',
 flareSizeBase = 100,
 flareSizeMultiplier = 100,
-lineWidth = 1,
-linkChance = 75, // chance per frame of link, higher = smaller chance
-linkLengthMin = 5, // min linked vertices
-linkLengthMax = 7, // max linked vertices
-linkOpacity = 0.25; // number between 0 & 1
-linkFade = 9, // link fade-out frames
-linkSpeed = 1, // distance a link travels in 1 frame
-glareAngle = -60,
-glareOpacityMultiplier = 0.05,
-renderParticles = true,
-renderParticleGlare = true,
 renderFlares = true,
-renderLinks = true,
-renderMesh = false,
-flicker = true,
-flickerSmoothing = 15, // higher = smoother flicker
 blurSize = 0,
-orbitTilt = true,
 randomMotion = true,
 noiseLength = 1000,
 noiseStrength = 1;
 
 var canvas = document.getElementById('stars'),
-//orbits = document.getElementById('orbits'),
 context = canvas.getContext('2d'),
 mouse = { x: 0, y: 0 },
 m = {},
@@ -364,7 +338,7 @@ this.x = random(-0.25, 1.25, true);
 this.y = random(-0.25, 1.25, true);
 this.z = random(0,2);
 this.color = color;
-this.opacity = random(0.001, 0.01, true);
+this.opacity = random(0.02, 0.03, true);
 };
 Flare.prototype.render = function() {
 var pos = position(this.x, this.y, this.z),
@@ -384,8 +358,6 @@ function noisePoint(i) {
 var a = nAngle * i,
   cosA = Math.cos(a),
   sinA = Math.sin(a),
-  //value = simplex.noise2D(nScale * cosA + nScale, nScale * sinA + nScale),
-  //rad = nRad + value;
   rad = nRad;
 return {
   x: rad * cosA,

@@ -6,7 +6,6 @@ $version = isset($_GET['version']) ? urldecode( strtolower($_GET['version']) ) :
 $partner = isset($_GET['partner']) ? urldecode( strtolower($_GET['partner']) ) : '';
 
 include_once $ROOT . 'version.php';
-include_once $ROOT . 'send.php';
 
 ?>
 
@@ -52,7 +51,7 @@ include_once $ROOT . 'send.php';
   {% import 'form/macro.php' as form %}
 
   <div class="wrapper">
-    <canvas id="stars" width="300" height="300"></canvas>
+    <canvas id="stars"></canvas>
     {% block blocks %}
     {% endblock %}
 
