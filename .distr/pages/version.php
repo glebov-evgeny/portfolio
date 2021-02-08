@@ -12,5 +12,5 @@ switch ($version) {
     case '':
     break;
 }
-$action = "https://egoji@mail.ru/";
+$action = "";
 
