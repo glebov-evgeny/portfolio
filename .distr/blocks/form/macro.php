@@ -1,5 +1,5 @@
 {% macro form(form, form_class='form_horisontal', title_class='', button_class='', title='Участвовать<br> бесплатно', button='Участвовать бесплатно', form_text='', add_fields, exclude_fields) %}
-<form enctype="multipart/form-data" method="post" onsubmit="send(event, 'send.php')" class="form {{form_class}}">
+<form action="" class="form {{form_class}} nolander" onsubmit="return sendFormWithFile(this);">
     <div class="form__wrapper">
         {% if title.length %}
         <h3 class="form__title {{ title_class }}">{{ title | safe }}</h3>

@@ -1,8 +1,13 @@
 .portfolio{
+    @media (max-width: 992px) {
+        &__item-title{
+            font-size: 14px;
+        }
+    }
     @media (max-width: 768px) {
         &__content{
             grid-gap: 20px;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
         }
     }
     @media (max-width: 576px) {

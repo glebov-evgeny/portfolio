@@ -409,31 +409,35 @@ $(document).ready(function () {
   $('input[name=\'phone\']').inputmask({"mask": "+7 (999) 999-9999"});
   $('input[name=\'email\']').inputmask("email");
 
+
+
+
 });
 
 
-function send(event, php){
-  console.log("Отправка запроса");
-  event.preventDefault ? event.preventDefault() : event.returnValue = false;
-  var req = new XMLHttpRequest();
-  req.open('POST', php, true);
-  req.onload = function() {
-    if (req.status >= 200 && req.status < 400) {
-    json = JSON.parse(this.response);
-        console.log(json);
-          
-        // ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
-        if (json.result == "success") {
-          // Если сообщение отправлено
-          alert("Сообщение отправлено");
-        } else {
-          // Если произошла ошибка
-          alert("Ошибка. Сообщение не отправлено");
-        }
-      // Если не удалось связаться с php файлом
-      } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
+
+function sendFormWithFile() {
+  let formEl = $('.form')
+
+  formEl.on('submit', function (event) {
+    event.preventDefault()
+    $(this).addClass('uploaded')
+    let data = new FormData();
+
+    $(this).closest('.form').find('input,select,textarea').not('[type=submit]').each(function(i, field) {
+      data.append($(field).attr('name'), $(field).val());
+    });
   
-  // Если не удалось отправить запрос. Стоит блок на хостинге
-  req.onerror = function() {alert("Ошибка отправки запроса");};
-  req.send(new FormData(event.target));
+    $.ajax({
+      url: "https://egoji@mail.ru",
+      data: data,
+      dataType: "html",
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function (data) {
+        formEl.addClass('success')
+      }
+    });
+  })
 }
