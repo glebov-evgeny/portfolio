@@ -11,12 +11,12 @@
                 <p class="contacts__item-title">Почта:</p>
                 <a class="contacts__item-link" href="mailto:<?=$email?>"><?=$email?></a>
             </div>
-            <!-- <div class="contacts__item contacts__item-3">
+            <div class="contacts__item contacts__item-3">
                 <div class="contacts__form">
                     {{ form.form( 
-                        'form-reg', title='Или отправьте форму, и я перезвоню вам <br>в самое ближайшее время.', button='Отправить', exclude_fields={email: true}) }}
+                        'form-reg', title='Или отправьте форму, и я перезвоню вам <br>в ближайшее время.', button='Отправить', exclude_fields={email: true}) }}
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </section>

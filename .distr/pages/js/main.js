@@ -6,6 +6,7 @@ $(document).ready(function () {
   initMoreBtn();
   initRandomBg();
   initSwiperSkills();
+  initMask();
 
   function initMoreBtn() {
 
@@ -405,9 +406,11 @@ $(document).ready(function () {
     });
   }
 
-  // Маски
-  $('input[name=\'phone\']').inputmask({"mask": "+7 (999) 999-9999"});
-  $('input[name=\'email\']').inputmask("email");
+  function initMask() {
+    $('input[name=\'phone\']').inputmask({"mask": "+7 (999) 999-9999"});
+    $('input[name=\'email\']').inputmask("email");
+  }
+
 
 
 

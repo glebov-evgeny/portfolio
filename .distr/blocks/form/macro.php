@@ -1,5 +1,5 @@
 {% macro form(form, form_class='form_horisontal', title_class='', button_class='', title='Участвовать<br> бесплатно', button='Участвовать бесплатно', form_text='', add_fields, exclude_fields) %}
-<form action="" class="form {{form_class}} nolander" onsubmit="return sendFormWithFile(this);">
+<form action="" class="form {{form_class}} nolander" method="post">
     <div class="form__wrapper">
         {% if title.length %}
         <h3 class="form__title {{ title_class }}">{{ title | safe }}</h3>
@@ -29,7 +29,7 @@
             {% endif %}
 
             <div class="form__item form__button">
-                <button class="btn {{button_class}}" type="submit">{{ button }}</button>
+                <button class="btn {{button_class}}" type="submit" name="submit">{{ button }}</button>
             </div>
         </div>
 
