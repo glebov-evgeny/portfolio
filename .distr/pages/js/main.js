@@ -7,6 +7,7 @@ $(document).ready(function () {
   initRandomBg();
   initSwiperSkills();
   initMask();
+  sendFormWithFile();
 
   function initMoreBtn() {
 
@@ -272,7 +273,6 @@ $(document).ready(function () {
     // Motion mode
     //if (Modernizr && Modernizr.deviceorientation) {
     if ('ontouchstart' in document.documentElement && window.DeviceOrientationEvent) {
-      console.log('Using device orientation');
       window.addEventListener('deviceorientation', function(e) {
         mouse.x = (canvas.clientWidth / 2) - ((e.gamma / 90) * (canvas.clientWidth / 2) * 2);
         mouse.y = (canvas.clientHeight / 2) - ((e.beta / 90) * (canvas.clientHeight / 2) * 2);
@@ -412,35 +412,30 @@ $(document).ready(function () {
   }
 
 
+  // function sendFormWithFile() {
+  //   let formEl = $('.form')
+  
+  //   formEl.on('submit', function (event) {
+  //     event.preventDefault()
+  //     let nameForm = document.querySelector('input[name="name"]');
+  //     let txt = nameForm.value.toLowerCase();
 
+
+  //     let notrue='http://,url,.ru,.com,.net,.tk,.ucoz,www,.ua,.tv,.info,.org,.su,.ру,.су,.ком,.инфо,//'.split(',');
+  //     let list = /<a href|http:|.www|.ru|.com|.org|.net|.biz|.info|.ua/igm;  
+
+
+  //     for( i=0; i < txt.length; i++ ){
+  //       let link = txt[i];
+  //       console.log(link)
+  //     }
+
+
+  //   })
+  // }
 
 
 });
 
 
 
-function sendFormWithFile() {
-  let formEl = $('.form')
-
-  formEl.on('submit', function (event) {
-    event.preventDefault()
-    $(this).addClass('uploaded')
-    let data = new FormData();
-
-    $(this).closest('.form').find('input,select,textarea').not('[type=submit]').each(function(i, field) {
-      data.append($(field).attr('name'), $(field).val());
-    });
-  
-    $.ajax({
-      url: "https://egoji@mail.ru",
-      data: data,
-      dataType: "html",
-      processData: false,
-      contentType: false,
-      type: 'POST',
-      success: function (data) {
-        formEl.addClass('success')
-      }
-    });
-  })
-}
