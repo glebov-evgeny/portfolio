@@ -7,7 +7,7 @@ $(document).ready(function () {
   initRandomBg();
   initSwiperSkills();
   initMask();
-  sendFormWithFile();
+  // sendFormWithFile();
 
   function initMoreBtn() {
 
