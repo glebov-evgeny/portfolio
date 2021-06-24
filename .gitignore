@@ -2,6 +2,7 @@
 node_modules
 manifest/
 package-lock.json
+package.json
 gulpconfig.json
 .helm
 .distr
