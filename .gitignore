@@ -1,6 +1,8 @@
-public/
+
 node_modules
 manifest/
 package-lock.json
 gulpconfig.json
+.helm
+.distr
 .DS_Store

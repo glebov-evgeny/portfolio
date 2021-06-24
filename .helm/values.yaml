@@ -18,8 +18,4 @@ redirects: []
 #     query: partner=any_partner    # не обязательный параметр, указывается после ? в url
 #   - host: domain2.com
 #     path: /lp/test
-mirrors:
-  - host: programiss.ru
-    path: /
-  - host: xn--80afqphfhcma.xn--p1ai
-    path: /
+mirrors: []
