@@ -3,3 +3,4 @@ node_modules
 manifest/
 package-lock.json
 gulpconfig.json
+.DS_Store
