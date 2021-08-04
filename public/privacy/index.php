@@ -217,21 +217,6 @@ include_once $ROOT . 'version.php';
   </div><!-- wrapper -->
 
 
-  <?php if (isset($_POST["submit"])) {
-    $to = "egoji@mail.ru";
-    $subject = "Письмо с лендинга-портолио";
-    $charset = "utf-8";
-    $headerss ="Content-type: text/html; charset=$charset\r\n";
-    $headerss.="MIME-Version: 1.0\r\n";
-    $headerss.="Date: ".date('D, d M Y h:i:s O')."\r\n";
-    $msg = "<b>Имя:</b> ".$_POST["name"]."\n";
-    $msg .= "<br><b>Телефон:</b>: ".$_POST["phone"]."\n";
-    mail($to, $subject, $msg, $headerss);
-    print "<script>alert(\"Сообщение успешно отправлено!\");window.location = window.location.href</script>";
-    }
-  ?>
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js" defer></script>
