@@ -155,9 +155,24 @@ include_once $ROOT . 'version.php';
                     <p class="portfolio__item-title">vzlet</p>
                 </a>
                 
+                <a href="https://smm.synergy.ru/" class="portfolio__item" target="_blank">
+                    <img src="img/portfolio/pic-26.jpg" alt="" class="lazy">
+                    <p class="portfolio__item-title">creative agency</p>
+                </a>
+                
                 <a href="https://edurosv.ru/" class="portfolio__item" target="_blank">
                     <img src="img/portfolio/pic-04.jpg" alt="" class="lazy">
                     <p class="portfolio__item-title">edurosv.ru</p>
+                </a>
+                
+                <a href="https://synergytravel.ru/mirtravel/" class="portfolio__item" target="_blank">
+                    <img src="img/portfolio/pic-27.jpg" alt="" class="lazy">
+                    <p class="portfolio__item-title">mirtravel</p>
+                </a>
+                
+                <a href="https://synergyglobal.ru/forums/mba2021/" class="portfolio__item" target="_blank">
+                    <img src="img/portfolio/pic-24.jpg" alt="" class="lazy">
+                    <p class="portfolio__item-title">mba2021</p>
                 </a>
                 
                 <a href="https://synergy.ru/lp/design/" class="portfolio__item" target="_blank">
@@ -213,6 +228,11 @@ include_once $ROOT . 'version.php';
                 <a href="https://synergy.ru/agency/" class="portfolio__item" target="_blank">
                     <img src="img/portfolio/pic-15.jpg" alt="" class="lazy">
                     <p class="portfolio__item-title">Speakers Agency</p>
+                </a>
+                
+                <a href="https://synergydigital.com/lp/marketer/" class="portfolio__item" target="_blank">
+                    <img src="img/portfolio/pic-25.jpg" alt="" class="lazy">
+                    <p class="portfolio__item-title">marketer</p>
                 </a>
                 
             </div>

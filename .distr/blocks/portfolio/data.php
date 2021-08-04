@@ -2,6 +2,7 @@
 
 
 {% set data = [
+
 {
     url: 'https://synergy.ru/lp/triz/webinar',
     pic: 'pic-20.jpg',
@@ -58,9 +59,24 @@
     title: 'vzlet'
 },
 {
+    url: 'https://smm.synergy.ru/',
+    pic: 'pic-26.jpg',
+    title: 'creative agency'
+},   
+{
     url: 'https://edurosv.ru/',
     pic: 'pic-04.jpg',
     title: 'edurosv.ru'
+},
+{
+    url: 'https://synergytravel.ru/mirtravel/',
+    pic: 'pic-27.jpg',
+    title: 'mirtravel'
+},
+{
+    url: 'https://synergyglobal.ru/forums/mba2021/',
+    pic: 'pic-24.jpg',
+    title: 'mba2021'
 },
 {
     url: 'https://synergy.ru/lp/design/',
@@ -116,6 +132,12 @@
     url: 'https://synergy.ru/agency/',
     pic: 'pic-15.jpg',
     title: 'Speakers Agency'
+}
+,
+{
+    url: 'https://synergydigital.com/lp/marketer/',
+    pic: 'pic-25.jpg',
+    title: 'marketer'
 }
 
 ]%}

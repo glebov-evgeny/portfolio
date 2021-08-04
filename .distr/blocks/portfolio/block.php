@@ -1,4 +1,4 @@
-{% from './data.njk' import data as items %}
+{% from './data.php' import data as items %}
 <section class="portfolio" id="portfolio">
     <div class="container">
         <h2 class="portfolio__title section__title">Примеры работ</h2>
