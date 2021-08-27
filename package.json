@@ -4,7 +4,7 @@
   "description": "project",
   "main": "index.js",
   "scripts": {
-    // "test": "echo \"сорри, сэр...\" && exit 1",
+
     "gulp": "node node_modules/gulp/bin/gulp.js"
   },
   "author": "egoji@mail.ru",
