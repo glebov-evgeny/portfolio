@@ -1,15 +1,9 @@
-sudo: false
-
 language: node_js
-node_js:
-  - 9
-
-branches:
-  only:
-    - master
-
-deploy:
-  provider: heroku
-  app: "portfolioallesjohnshome"
-  api_key:
-    secure: "ba6131b9-426e-4151-bd5c-3531006aac00" 
+ node_js:
+ - "stable"
+ cache:
+ directories:
+   - node_modules
+ script:
+ - npm test
+ - npm run build
