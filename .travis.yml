@@ -10,6 +10,6 @@ branches:
 
 deploy:
   provider: heroku
-  app: "portfolioallesjohns"
+  app: "portfolioallesjohnshome"
   api_key:
     secure: "ba6131b9-426e-4151-bd5c-3531006aac00" 
