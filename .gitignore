@@ -2,7 +2,6 @@ gulpfile.js
 node_modules
 manifest/
 package-lock.json
-package.json
 gulpconfig.json
 .helm
 .DS_Store
