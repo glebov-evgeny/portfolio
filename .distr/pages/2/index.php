@@ -1,8 +1,7 @@
 {% extends "default.php" %}
 
 {% block blocks %}
-    {% set IS_MAIN = true %}
-    {% include 'main/block.php' %}
+    {% include 'main2/block.php' %}
 {% endblock %}
 
 {% block popups %}

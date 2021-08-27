@@ -1,12 +1,12 @@
 <?php
 
 
-$title = 'Портфолио | Глебов Евгений';
-$description = 'Портфолио | Глебов Евгений';
+$title = 'Тайтл тест';
+$description = 'Тайтл тест';
 
-$phone = '8 (916) 217-65-57';
-$phone_link = '+79162176557';
-$email = 'egoji@mail.ru';
+$phone = '';
+$phone_link = '';
+$email = '';
 
 switch ($version) {
     case '':
