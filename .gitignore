@@ -3,8 +3,7 @@ node_modules
 manifest/
 package-lock.json
 gulpconfig.json
+gulpfile.js
 .DS_Store
 .distr
-gulpfile.js
-package-lock.json
 package.json
