@@ -1,4 +1,4 @@
-public/
+.gitignore
 node_modules
 manifest/
 package-lock.json
