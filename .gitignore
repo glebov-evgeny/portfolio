@@ -4,3 +4,7 @@ manifest/
 package-lock.json
 gulpconfig.json
 .DS_Store
+.distr
+gulpfile.js
+package-lock.json
+package.json

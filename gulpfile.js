@@ -18,7 +18,7 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV != 'producti
 
 /* Конфиг */
 var CONFIG = {
-	output: 'public', /* Корневая папка сайта */
+	output: 'ea-glebov', /* Корневая папка сайта */
 	input: '.distr/', /* Корневая папка дистрибутива */
 	pages: '.distr/pages', /* Структура сайта в дистрибутиве */
 	templates: '.distr/templates', /* Шаблоны сайта в дистрибутиве */
